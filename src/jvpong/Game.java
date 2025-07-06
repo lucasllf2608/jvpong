@@ -1,6 +1,7 @@
 package jvpong;
 
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
@@ -57,6 +58,8 @@ public class Game extends Canvas implements Runnable, KeyListener {
 		}
 
 		Graphics g = layer.getGraphics();
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 0, WIDTH, HEIGHT);
 		player.render(g);
 		
 		g = bs.getDrawGraphics();
@@ -88,11 +91,11 @@ public class Game extends Canvas implements Runnable, KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		if(KeyEvent.KEY_PRESSED  == KeyEvent.VK_RIGHT) {
+		if(e.getKeyCode()  == KeyEvent.VK_RIGHT) {
 			player.right = true;
 		}
 		
-		if(KeyEvent.KEY_PRESSED  == KeyEvent.VK_LEFT) {
+		if(e.getKeyCode()  == KeyEvent.VK_LEFT) {
 			player.left = true;
 		}
 		
@@ -101,7 +104,13 @@ public class Game extends Canvas implements Runnable, KeyListener {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
+		if(e.getKeyCode()  == KeyEvent.VK_RIGHT) {
+			player.right = false;
+		}
 		
+		if(e.getKeyCode()  == KeyEvent.VK_LEFT) {
+			player.left = false;
+		}
 	}
 
 }
