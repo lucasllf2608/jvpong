@@ -23,12 +23,7 @@ public class Enemy {
 	
 	public void render(Graphics g) {
 		g.setColor(Color.MAGENTA);
-		
-		int i  = (int) x;
-		int z  = (int) y;
-		
-		
-		g.fillRect(i, z, width, height);
+		g.fillRect((int) x, (int) y, width, height);
 	}
 	
 }
